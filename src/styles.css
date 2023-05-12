@@ -1,8 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
-.item{
+/* HEADER */
+header {
+  display: block;
+  margin-top: 40px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+}
+nav a {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 20px;
+  font-size: 1.2em;
+  color: #1976d2;
+  text-decoration: none;
+}
+nav a.active-link {
+  border-bottom: 2px solid red;
+}
+
+/* PRODUCT LIST */
+
+product-list {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.item {
   border: 2px solid silver;
-  width: 200px;
+  width: 600px;
   border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 5px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item span {
+  font-size: 2em;
+  color: #4b4949;
+}
+
+.action-btns a {
+  margin-left: 10px;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+.action-btns a:nth-child(1) {
+  color: #1976d2;
+}
+.action-btns a:nth-child(2) {
+  color: red;
+}
+
+/* PRODUCT ITEM */
+product-item {
+  display: block;
+  font-size: 2em;
+  margin-top: 200px;
+  margin-left: 100px;
+}
+product-item div {
+  margin-bottom: 20px;
+}
+
+/* HOME */
+home {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+/* Colors */
+.red {
+  color: red;
+}
+.blue {
+  color: #1976d2;
 }
