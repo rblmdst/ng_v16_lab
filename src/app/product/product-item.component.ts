@@ -1,7 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'product-item',
@@ -10,27 +8,15 @@ import { map } from 'rxjs';
   template: `
     <div><strong>ID : </strong>{{ id }}</div>
     <div><strong>Qualité : </strong>{{ quality }}</div>
+    <div><strong>Test : </strong>{{ test }}</div>
   `,
 })
-export class ProductItemComponent implements OnInit {
-  private route = inject(ActivatedRoute);
+class ProductItemComponent implements OnInit {
+  @Input() id: string | null = null;
+  @Input() quality: string | null = null;
+  @Input() test: string | null = null;
 
-  private id$ = this.route.params.pipe(map((params) => params['id']));
-  private quality$ = this.route.queryParamMap.pipe(
-    map((queryParams) => queryParams.get('quality'))
-  );
-
-  id: string | null = null;
-  quality: string | null = null;
-
-  ngOnInit() {
-    // /!\ Remember to unsubscribe: this is just for demo
-    this.id$.subscribe((id) => {
-      this.id = id;
-    });
-
-    this.quality$.subscribe((quality) => {
-      this.quality = quality;
-    });
-  }
+  ngOnInit() {}
 }
+
+export default ProductItemComponent;
