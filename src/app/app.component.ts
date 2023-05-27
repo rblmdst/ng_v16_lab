@@ -6,8 +6,8 @@ import { ItemComponent } from './item.component';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, ItemComponent],
-  template: ` <item [name]="name" /> `,
+  template: ` <item [itemName]="name" /> `,
 })
 export class AppComponent {
-  name = 'My name';
+  name = 'Toto';
 }
