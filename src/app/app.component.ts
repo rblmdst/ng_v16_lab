@@ -1,14 +1,22 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { TimeComponent } from './time.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [NgIf, TimeComponent],
+  template: `
+    <button (click)="toggleState()">{{ display ? 'destroy' : 'show' }}</button>
+    <div *ngIf="display" class="item">
+      <cur-time />
+    </div>
+  `,
 })
 export class AppComponent {
-  title = 'test-app';
+  display = false;
+
+  toggleState() {
+    this.display = !this.display;
+  }
 }
