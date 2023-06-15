@@ -1,0 +1,26 @@
+<div class="action-btns">
+  <button type="button" (click)="removeAllProducts()">Delete All</button>
+  <button type="button" (click)="addProduct()">Add new</button>
+  <button type="button" (click)="resetProductList()">Reset list</button>
+</div>
+<div class="list-label">Categries :</div>
+<div class="filter-block">
+  <label *ngFor="let type of productTypes" [attr.for]="type.code">
+    <input
+      #radio
+      [attr.id]="type.code"
+      type="radio"
+      name="product_type"
+      [value]="type.code"
+      (change)="onFilterValueChange(radio.value)"
+    />
+    {{ type.label }}
+  </label>
+</div>
+
+<div class="list-label">List of products :</div>
+<!-- TODO: Display product item using "product-item" -->
+<div class="summary">
+  <strong>Count :</strong>
+  <!-- TODO: Display number of items -->
+</div>
