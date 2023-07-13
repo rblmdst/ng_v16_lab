@@ -19,8 +19,12 @@
 </div>
 
 <div class="list-label">List of products :</div>
-<!-- TODO: Display product item using "product-item" -->
+<product-item
+  (delete)="onDelete($event)"
+  *ngFor="let product of filteredList()"
+  [product]="product"
+/>
 <div class="summary">
   <strong>Count :</strong>
-  <!-- TODO: Display number of items -->
+  {{ filteredList().length }}
 </div>
