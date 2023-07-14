@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-.item{
+.item {
   border: 2px solid silver;
   width: 200px;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 5px;
+}
+
+.date-picker {
+  border: 2px solid silver;
+  padding: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  color: silver;
+}
+
+.date-picker.active {
+  border-color: #264bd9;
+  color: #304dbc;
 }
