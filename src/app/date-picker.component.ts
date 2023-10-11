@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { booleanAttribute, Component, Input } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 
 // YYYY-MM-DD
@@ -17,24 +17,11 @@ function toDate(dateStr: string): Date {
   imports: [CommonModule, DatePipe],
   template: `
     <div [class.active]="!disabled" class="date-picker">
-      {{ theDate | date }}
+      {{ defaultValue | date }}
     </div>
   `,
 })
-export class DatePickerComponent /* implements OnChanges */ {
-  // Before : Option1 - setter
-  @Input({ required: true }) set defaultValue(value: string) {
-    this.theDate = toDate(value);
-  }
-  @Input() disabled = false;
-
-  theDate!: Date;
-
-  // Before : Option2- ngOnChanges
-  /* ngOnChanges(changes: SimpleChanges): void {
-    if ('defaultValue' in changes) {
-      const value = changes['defaultValue'].currentValue;
-      this.theDate = toDate(value);
-    }
-  } */
+export class DatePickerComponent {
+  @Input({ required: true, transform: toDate }) defaultValue!: string;
+  @Input({ transform: booleanAttribute }) disabled = false;
 }
