@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { CodeLabel, Product, ProductType } from '../product.model';
 
 @Component({
   selector: 'product-list',
   standalone: true,
-  imports: [NgFor, NgIf, ProductItemComponent],
+  imports: [ProductItemComponent],
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent {
@@ -44,12 +43,6 @@ export class ProductListComponent {
   addProduct() {
     const newProduct = { id: 28, name: 'Coca Cola 50 Cl', type: 'drink' };
     // TODO: Update the list by adding newProduct (use the existing list)
-  }
-
-  // people that are fan of using array.prototype.push()
-  addProductByMutation() {
-    const newProduct = { id: 75, name: 'Sprite 50 Cl', type: 'drink' };
-    // TODO: Update the list by adding newProduct (mutate the existing list)
   }
 
   onDelete(productId: number) {
