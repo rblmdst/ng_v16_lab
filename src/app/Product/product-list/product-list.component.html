@@ -21,8 +21,13 @@
 </div>
 
 <div class="list-label">List of products :</div>
-<!-- TODO: Display product item using "product-item" -->
+@for (product of filteredList(); track product.id) {
+<product-item (delete)="onDelete($event)" [product]="product"></product-item>
+
+}
+
 <div class="summary">
   <strong>Count :</strong>
   <!-- TODO: Display number of items -->
+  {{ filteredList().length }}
 </div>
